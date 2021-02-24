@@ -19,8 +19,8 @@ function setup() {
   balloon.addAnimation("Balloon", Balloon)
   balloon.scale = 0.4
 
-  var balloonPosition = database.ref('balloon/height');
-  balloonPosition.on("value",readHeight, showError)
+  var balloonHeight = database.ref('balloon/height');
+  balloonHeight.on("value",readHeight, showError)
 }
 
   function draw() {
@@ -28,17 +28,26 @@ function setup() {
 
   if(keyDown(UP_ARROW)){
         updateHeight(0,-10)     
-        balloon.addAnimation("Balloon", Balloon)
+       // balloon.addAnimation("Balloon", Balloon)
         balloon.scale-=0.005
 }   
 
 if(keyDown(DOWN_ARROW)){
         updateHeight(0,+10)
-        balloon.addAnimation("Balloon", Balloon)
+        //balloon.addAnimation("Balloon", Balloon)
         balloon.scale+=0.005
 
 }
 
+      if(keyDown(RIGHT_ARROW)){
+        updateHeight(+10,0)     
+}   
+
+if(keyDown(LEFT_ARROW)){
+        updateHeight(-10,0)
+
+}
+    
   drawSprites();
 }
 
