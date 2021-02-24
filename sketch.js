@@ -1,5 +1,5 @@
 var balloon;
-var database, position;
+var database, height;
 var back, Balloon, Up, Down;
 
 function preload(){
@@ -22,7 +22,7 @@ function setup() {
   balloon.scale = 0.4
 
   var balloonPosition = database.ref('balloon/height');
-  balloonPosition.on("value", showError)
+  balloonPosition.on("value",readHeight, showError)
 }
 
   function draw() {
