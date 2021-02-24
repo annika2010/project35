@@ -1,13 +1,11 @@
 var balloon;
 var database, height;
-var back, Balloon, Up, Down;
+var back, Balloon;
 
 function preload(){
 
 back = loadImage("sprites/Hot Air Ballon-01.png")
-Balloon = loadAnimation("sprites/Hot Air Ballon-03.png")
-Up = loadAnimation("sprites/Hot Air Ballon-02.png")
-Down = loadAnimation("sprites/Hot Air Ballon-04.png")
+Balloon = loadAnimation("sprites/Hot Air Ballon-03.png", "sprites/Hot Air Ballon-04.png", "sprites/Hot Air Ballon-02.png")
 
 }
 
@@ -29,13 +27,15 @@ function setup() {
     background(back); 
 
   if(keyDown(UP_ARROW)){
-        updateHeight(-10,0)     
-        balloon.addAnimation("hotAirBalloon",Up)
+        updateHeight(0,-10)     
+        balloon.addAnimation("Balloon", Balloon)
+        balloon.scale-=0.005
 }   
 
 if(keyDown(DOWN_ARROW)){
-        updateHeight(+10,0)
-        balloon.addAnimation("hotAirBalloon",Down)
+        updateHeight(0,+10)
+        balloon.addAnimation("Balloon", Balloon)
+        balloon.scale+=0.005
 
 }
 
